@@ -16,9 +16,30 @@ class contact:
         f.write(self.Name + " " + str(self.Date) + " " + str(self.Phone) + "\n")
 
 
+def name_type(string):
+    qwe = string
+    print qwe
+    return qwe
+
+
+def date_type(string):
+    qwe = string
+    print qwe
+    return qwe
+
+def phone_type(string):
+    qwe = string
+    print qwe
+    return qwe
+
 parser = argparse.ArgumentParser()
-parser.add_argument("-w", action='append', nargs=3, metavar=('[name]','[date]','[phone]'),  help="write new contact")
-parser.add_argument("-l" , help="show all contacts")
+subparsers = parser.add_subparsers(help='sfdsfsef')
+parser_w = subparsers.add_parser("write")
+parser_w.add_argument("name", metavar=('[name]'), type=name_type)
+parser_w.add_argument("date", metavar=('[date]'), type=date_type)
+parser_w.add_argument("phone", metavar=('[phone]'), type=phone_type)
+
+parser.add_argument("-l" , action='store_const', const=True, default=False, help="show all contacts")
 
 
 somevar = parser.parse_args()
