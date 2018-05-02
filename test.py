@@ -50,3 +50,11 @@ parser_l.add_argument("list", action=list_all, nargs='?',  help="show all contac
 somevar = parser.parse_args()
 
 print somevar
+parser.add_argument("-w",action='append', nargs=3, metavar=('name','date','phone'),  help="write new contact")
+new  = parser.parse_args()
+for i in new.w:
+    i.addcontact
+    print i
+parser.add_argument("-l"  ,help="show all contacts")
+f.readline
+
