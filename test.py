@@ -77,7 +77,7 @@ class superparser:
         self.argspace = self.parser.parse_args()
 
 
-new = superparser()
+new = superparser()new = superparser()
 if str(sys.argv[1]) == "write":
     wert = contact(new.argspace.name, new.argspace.date, new.argspace.phone)
     wert.addcontact()
