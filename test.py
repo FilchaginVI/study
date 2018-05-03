@@ -29,8 +29,8 @@ class contact:
 class list_all(argparse.Action):
 
     def __call__(self, parser, *args, **kwargs):
-        rew = contact('fake', 'fake', 'fake')
-        rew.list_contact()
+        showall = contact('fake', 'fake', 'fake')
+        showall.list_contact()
 
 
 class superparser:
@@ -63,7 +63,7 @@ class superparser:
         subparsers = parser.add_subparsers(help='choose type of action')
 
         parser_w = subparsers.add_parser("write")
-        parser_w.add_argument("name", metavar=('[name]'), type=self.name_type, help="First,second,last name without free space")
+        parser_w.add_argument("name", metavar=('[name]'), type=self.name_type, help="First,second,last name without free space or dots")
         parser_w.add_argument("date", metavar=('[date]'), type=self.date_type, help="date in format YYYY-MM-DD")
         parser_w.add_argument("phone", metavar=('[phone]'), type=self.phone_type, help="phone number with +")
         parser_l = subparsers.add_parser("list")
@@ -77,8 +77,8 @@ class superparser:
         self.argspace = self.parser.parse_args()
 
 
-new = superparser()
+
 new = superparser()
 if str(sys.argv[1]) == "write":
-    cnt = contact(new.argspace.name, new.argspace.date, new.argspace.phone)
-    cnt.addcontact()
+    newcontact = contact(new.argspace.name, new.argspace.date, new.argspace.phone)
+    newcontact.addcontact()
